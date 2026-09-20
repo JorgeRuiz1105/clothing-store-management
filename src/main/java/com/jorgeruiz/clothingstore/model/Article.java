@@ -26,6 +26,16 @@ public class Article {
         this.category = category;
     }
 
+    public Article(String name, Size size, String color, BigDecimal price, int quantity, ArticleCategories category){
+        validateCategorySizeCorrelation(category,size);
+        this.name = validateName(name);
+        this.size = size;
+        this.color = validateColor(color);
+        this.price = validatePrice(price);
+        this.quantity = validateQuantity(quantity);
+        this.category = category;
+    }
+
     public int getId() {
         return id;
     }

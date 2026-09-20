@@ -19,6 +19,13 @@ public class Sale {
         this.itemSaleList = validateItemSaleList(itemSaleList);
     }
 
+    public Sale(SaleTypes type, Customer customer, List<ItemSale> itemSaleList){
+        this.type = validateType(type);
+        this.date = LocalDateTime.now();
+        this.customer = validateCustomer(customer);
+        this.itemSaleList = validateItemSaleList(itemSaleList);
+    }
+
     public int getId() {
         return id;
     }

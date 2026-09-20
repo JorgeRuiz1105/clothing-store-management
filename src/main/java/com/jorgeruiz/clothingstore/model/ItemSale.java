@@ -3,18 +3,12 @@ package com.jorgeruiz.clothingstore.model;
 import java.math.BigDecimal;
 
 public class ItemSale {
-    private int id;
     private Article article;
     private int amount;
 
-    public ItemSale(int id, Article article, int amount) {
-        this.id = id;
+    public ItemSale(Article article, int amount) {
         this.article = validateArticle(article);
         this.amount = validateAmount(amount);
-    }
-
-    public int getId() {
-        return id;
     }
 
     public Article getArticle() {

@@ -15,6 +15,13 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(String document, String name, String phone, String address){
+        this.document = validateDocument(document);
+        this.name = name;
+        this.phone = validatePhone(phone);
+        this.address = address;
+    }
+
     public int getId() {
         return id;
     }

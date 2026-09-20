@@ -16,6 +16,12 @@ import java.math.BigDecimal;
             this.sale = validateSale(sale);
         }
 
+        public Debt(Customer customer, Sale sale){
+            this.date = LocalDateTime.now();
+            this.customer = validateCustomer(customer);
+            this.sale = validateSale(sale);
+        }
+
         public int getId() {
             return id;
         }

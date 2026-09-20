@@ -16,6 +16,12 @@ public class Payment {
         this.debt = validateDebt(debt);
     }
 
+    public Payment(BigDecimal amount, Debt debt){
+        this.amount = validateAmount(amount);
+        this.date = LocalDateTime.now();
+        this.debt = validateDebt(debt);
+    }
+
     public int getId() {
         return id;
     }
