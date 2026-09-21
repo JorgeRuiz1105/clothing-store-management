@@ -34,7 +34,7 @@ public class SaleService {
             int articleId = entry.getKey();
             int articleAmount = entry.getValue();
             Article article = inventoryService.getArticleById(articleId);
-            ItemSale itemSale = new ItemSale(article, articleAmount);
+            ItemSale itemSale = new ItemSale(article, articleAmount, article.getPrice());
             itemSaleList.add(itemSale);
         }
 
