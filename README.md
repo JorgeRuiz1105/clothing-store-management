@@ -2,20 +2,14 @@
 
 ## English
 
-### Current State
+### Current State (Version 2.0)
 Complete in-memory model (still not database persistence)
-* Protected business rules across all entities
-* Immutable sales records
-* Dynamically calculated debt totals
-* A main orchestrator class (`Store`) that manages operations safely without exposing internal data
+* **Layered Architecture:** refactoring from monolithic orchestrator (`Store`) into a modular, multi-layer architecture (Model, Repository, Service).
+* Constructor overloading across domain entities.
 
 ### Design Choices
-* **`Size` interface with category enums** (clothing, footwear, baby items).
-* **Dynamically calculated debt values** handled by the orchestrator class instead of stored as attributes, keeping data accurate and avoiding sync issues.
-* **Immutable sales and debt records** once created, ensuring data integrity and safety.
-* **Defensive list copies** used instead of exposing internal collections directly.
-* **Stock validation before processing sales** to ensure transaction atomicity.
-* **Custom exceptions** (`InsufficientStockException`, `PaymentExceedsDebtException`, etc.) used instead of generic Java ones.
+* **Constructor Injection**: all services and repositories enforce immutability via constructor injection.
+* **Strict Transaction Limits**: validation of outstanding debts before accepting payments and fail-fast verifications.
 
 ### Next Steps
 * Add SQL/JDBC persistence.
@@ -23,23 +17,18 @@ Complete in-memory model (still not database persistence)
 
 ## Español
 
-### Estado actual
+### Estado actual (Versión 2.0)
 
 Modelo completo en memoria (aún sin persistencia en base de datos).
 
-* Reglas de negocio protegidas en todas las entidades.
-* Registros de ventas inmutables.
-* Totales de deuda calculados dinámicamente.
-* Una clase orquestadora principal (`Store`) que gestiona las operaciones de forma segura sin exponer datos internos.
+* **Arquitectura por capas**: refactorización completa desde la clase orquestadora monolítica (`Store`) hacia una arquitectura modular en capas (Modelo, Repositorio, Servicio).
+* Sobrecarga de constructores en las entidades.
+
 
 ### Decisiones de diseño
 
-* **Interfaz `Size` con enums por categoría** (ropa, calzado, artículos para bebé).
-* **Valores de deuda calculados dinámicamente** gestionados por la clase orquestadora en lugar de almacenarse como atributos, manteniendo la información exacta y evitando problemas de desincronización.
-* **Registros de ventas y deudas inmutables** una vez creados, garantizando la seguridad e integridad de los datos.
-* **Uso de copias defensivas de listas** en lugar de exponer directamente las colecciones internas.
-* **Validación de stock antes de procesar ventas** para garantizar la atomicidad de las transacciones.
-* **Excepciones personalizadas** (`InsufficientStockException`, `PaymentExceedsDebtException`, etc.) en lugar de las genéricas de Java.
+* **Inyección por constructor**: todos los servicios y repositorios garantizan inmutabilidad y desacoplamiento.
+* **Control Transaccional**: validación de saldos pendientes antes de registrar pagos y verificaciones fail-fast de inventario antes de procesar ventas.
 
 ## Próximos pasos
 
