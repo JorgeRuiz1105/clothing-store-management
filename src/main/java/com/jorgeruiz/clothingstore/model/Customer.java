@@ -30,10 +30,6 @@ public class Customer {
         return document;
     }
 
-    public void setDocument(String document) {
-        this.document = validateDocument(document);
-    }
-
     public String getName() {
         return name;
     }

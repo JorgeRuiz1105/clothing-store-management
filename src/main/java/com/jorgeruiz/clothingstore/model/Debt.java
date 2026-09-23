@@ -22,6 +22,13 @@ import java.math.BigDecimal;
             this.sale = validateSale(sale);
         }
 
+        public Debt(int id, Customer customer, Sale sale, LocalDateTime date){
+            this.id = id;
+            this.customer = validateCustomer(customer);
+            this.sale = validateSale(sale);
+            this.date = date;
+        }
+
         public int getId() {
             return id;
         }
