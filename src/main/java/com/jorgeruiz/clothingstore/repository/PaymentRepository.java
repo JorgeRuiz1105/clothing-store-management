@@ -2,6 +2,7 @@ package com.jorgeruiz.clothingstore.repository;
 
 import com.jorgeruiz.clothingstore.model.Payment;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,4 +12,6 @@ public interface PaymentRepository {
     Optional<Payment> findById(int id);
 
     List<Payment> findAll();
+
+    BigDecimal sumAmountByDebtId(int debtId);
 }
