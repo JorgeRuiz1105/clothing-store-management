@@ -38,14 +38,6 @@ public class PaymentService {
     }
 
     public BigDecimal calcTotalPaid(Debt debt){
-        Collection<Payment> allPayments = getAllPayments();
-        BigDecimal totalPaid = BigDecimal.ZERO;
-        for(Payment payment : allPayments){
-            Debt paymentDebt = payment.getDebt();
-            if(paymentDebt.equals(debt)){
-                totalPaid = totalPaid.add(payment.getAmount());
-            }
-        }
-        return totalPaid;
+        return paymentRepository.sumAmountByDebtId(debt.getId());
     }
 }
