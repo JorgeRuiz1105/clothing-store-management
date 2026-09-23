@@ -38,16 +38,25 @@ public enum ShoeSizes implements Size {
 
     private final int value;
 
-    ShoeSizes(int value){
+    ShoeSizes(int value) {
         this.value = value;
     }
 
-    public int getValue(){
+    public int getValue() {
         return value;
     }
 
     @Override
     public String getRepresentation() {
         return String.valueOf(value);
+    }
+
+    public static ShoeSizes fromRepresentation(String representation) {
+        for (ShoeSizes size : values()) {
+            if (size.getRepresentation().equals(representation)) {
+                return size;
+            }
+        }
+        throw new IllegalArgumentException("Talla de calzado invalida: " + representation);
     }
 }

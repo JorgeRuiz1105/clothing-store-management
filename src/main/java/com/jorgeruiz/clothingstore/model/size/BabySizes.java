@@ -21,4 +21,15 @@ public enum BabySizes implements Size {
     public String getRepresentation() {
         return this.value;
     }
+
+    public static BabySizes fromRepresentation(String value){
+        for(BabySizes size : values()){
+            if(size.getRepresentation().equals(value)){
+                return size;
+            }
+        }
+        throw new IllegalArgumentException(
+                "Talla de bebe invalida: " + value
+        );
+    }
 }

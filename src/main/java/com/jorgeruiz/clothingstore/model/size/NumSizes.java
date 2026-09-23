@@ -37,4 +37,17 @@ public enum NumSizes implements Size {
     public String getRepresentation() {
         return String.valueOf(value);
     }
+
+    public static NumSizes fromRepresentation(String value){
+        int numericValue = Integer.parseInt(value);
+
+        for(NumSizes size : values()){
+            if(size.getValue() == numericValue){
+                return size;
+            }
+        }
+        throw new IllegalArgumentException(
+                "Talla numerica invalida: " + value
+        );
+    }
 }

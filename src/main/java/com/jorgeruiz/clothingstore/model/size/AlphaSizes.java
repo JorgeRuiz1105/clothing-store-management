@@ -12,4 +12,8 @@ public enum AlphaSizes implements Size {
     public String getRepresentation() {
         return this.name();
     }
+
+    public static AlphaSizes fromRepresentation(String value){
+        return valueOf(value);
+    }
 }
